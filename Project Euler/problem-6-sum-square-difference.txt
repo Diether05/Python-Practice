@@ -1,0 +1,16 @@
+function sumSquareDifference(n) {
+  let sumOfSquares = 0;
+  let sum = 0;
+
+  for (let i = 1; i <= n; i++) {
+    sumOfSquares += i * i; // Calculate the sum of squares
+    sum += i; // Calculate the sum
+  }
+
+  const squareOfSum = sum * sum; // Calculate the square of the sum
+  const difference = squareOfSum - sumOfSquares; // Calculate the difference
+
+  return difference;
+}
+
+sumSquareDifference(100);

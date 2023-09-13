@@ -1,0 +1,17 @@
+function largestPrimeFactor(number) {
+  let factor = 2; // Start with the smallest prime factor
+  let largestPrime = 0; // Initialize the largest prime factor
+
+  while (number > 1) {
+    if (number % factor === 0) {
+      largestPrime = factor;
+      while (number % factor === 0) {
+        number /= factor; // Divide the number by the current factor until it's no longer divisible
+      }
+    }
+    factor++;
+  }
+
+  return largestPrime;
+}
+largestPrimeFactor(13195);

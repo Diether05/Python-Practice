@@ -1,0 +1,28 @@
+function isPalindrome(num) {
+  const numStr = num.toString();
+  const reversedNumStr = numStr.split('').reverse().join('');
+  return numStr === reversedNumStr;
+}
+
+function largestPalindromeProduct(n) {
+  const maxNumber = Math.pow(10, n) - 1; // Calculate the largest n-digit number
+  const minNumber = Math.pow(10, n - 1); // Calculate the smallest n-digit number
+  let largestPalindrome = 0;
+
+  for (let i = maxNumber; i >= minNumber; i--) {
+    for (let j = i; j >= minNumber; j--) {
+      const product = i * j;
+      if (product <= largestPalindrome) {
+        // If the product is less than the current largest palindrome, break the inner loop
+        break;
+      }
+      if (isPalindrome(product)) {
+        largestPalindrome = product;
+      }
+    }
+  }
+
+  return largestPalindrome;
+}
+
+largestPalindromeProduct(3);
